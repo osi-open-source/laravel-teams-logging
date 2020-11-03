@@ -1,7 +1,8 @@
 <?php
 
-namespace MargaTampu\LaravelTeamsLogging;
+namespace OsiOpenSource\LaravelTeamsLogging;
 
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
 
@@ -10,7 +11,7 @@ class LoggerServiceProvider extends ServiceProvider
     /**
      * The Laravel application instance.
      *
-     * @var \Illuminate\Foundation\Application
+     * @var Container
      */
     protected $app;
 
@@ -43,14 +44,14 @@ class LoggerServiceProvider extends ServiceProvider
     protected $is_lumen = false;
 
     /**
-     * @param Application $app
+     * @param Container $app
      */
     public function __construct($app = null)
     {
-        if (!$app) {
+        if (!$app && function_exists('app')) {
             $app = app();   //Fallback when $app is not given
         }
-        $this->app      = $app;
+        $this->app = $app;
         $this->version  = $app->version();
         $this->is_lumen = Str::contains($this->version, 'Lumen');
     }
@@ -67,17 +68,7 @@ class LoggerServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__ . '/config/teams.php' => config_path('teams.php'),
+            __DIR__ . '/config/teams.php' => $this->app->basePath() . '/config/teams.php',
         ]);
-    }
-
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        // $this->app->bind('logger', 'MargaTampu\LaravelTeamsLogging\LoggerServiceProvider');
     }
 }

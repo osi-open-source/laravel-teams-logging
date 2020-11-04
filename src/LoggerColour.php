@@ -1,6 +1,6 @@
 <?php
 
-namespace MargaTampu\LaravelTeamsLogging;
+namespace OsiOpenSource\LaravelTeamsLogging;
 
 class LoggerColour
 {

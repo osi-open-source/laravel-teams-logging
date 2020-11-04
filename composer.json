@@ -6,23 +6,46 @@
 		{
 			"name": "Sabar Tampubolon",
 			"email": "sabartampubolon@gmail.com"
+		},
+		{
+			"name": "Ivelin Pavlov",
+			"email": "ipavlov@objectsystems.com"
+		},
+		{
+			"name": "Lazerina Angelova",
+			"email": "langelova@objectsystems.com"
 		}
 	],
 	"require": {
-		"php": "^7.0",
-		"monolog/monolog": "^1.23|^2.0"
+		"php": ">=7.1",
+		"monolog/monolog": "^1.23|^2.0",
+		"illuminate/support": "*"
 	},
 	"require-dev": {
-		"ext-curl": "*"
+		"ext-json": "*",
+		"ext-curl": "*",
+		"phpunit/phpunit": "^9.3"
 	},
 	"autoload": {
 		"psr-4": {
-			"MargaTampu\\LaravelTeamsLogging\\": "src/"
+			"OsiOpenSource\\LaravelTeamsLogging\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/src/"
 		}
 	},
 	"extra": {
 		"laravel": {
-			"providers": [ "MargaTampu\\LaravelTeamsLogging\\LoggerServiceProvider" ]
+			"providers": [ "OsiOpenSource\\LaravelTeamsLogging\\LoggerServiceProvider" ]
 		}
+	},
+	"scripts": {
+		"phpunit": "phpunit --colors=auto --coverage-text",
+		"watch": "phpunit-watcher watch",
+		"test": [
+			"@phpunit"
+		]
 	}
 }

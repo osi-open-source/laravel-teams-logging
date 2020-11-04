@@ -16,7 +16,7 @@
     </testsuite>
   </testsuites>
   <php>
-    <env name="TEAMS_INCOMING_WEBHOOK_URL" value=""/>
+    <env name="TEAMS_INCOMING_WEBHOOK_URL" value="sample"/>
   </php>
   <logging>
     <testdoxHtml outputFile="logs/testdox.html"/>

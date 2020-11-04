@@ -1,6 +1,6 @@
 <?php
 
-namespace MargaTampu\LaravelTeamsLogging;
+namespace OsiOpenSource\LaravelTeamsLogging;
 
 class LoggerMessage implements \ArrayAccess, \JsonSerializable
 {
@@ -9,6 +9,7 @@ class LoggerMessage implements \ArrayAccess, \JsonSerializable
 
     /**
      * @param array $data
+     * @return void
      */
     public function __construct($data = [])
     {
@@ -19,6 +20,7 @@ class LoggerMessage implements \ArrayAccess, \JsonSerializable
      * Whether a offset exists
      * @link http://php.net/manual/en/arrayaccess.offsetexists.php
      * @param mixed $offset
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -29,6 +31,7 @@ class LoggerMessage implements \ArrayAccess, \JsonSerializable
      * Offset to retrieve
      * @link http://php.net/manual/en/arrayaccess.offsetget.php
      * @param mixed $offset
+     * @return mixed
      */
     public function offsetGet($offset)
     {
@@ -39,6 +42,7 @@ class LoggerMessage implements \ArrayAccess, \JsonSerializable
      * Offset to set
      * @link http://php.net/manual/en/arrayaccess.offsetset.php
      * @param mixed $offset
+     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -53,6 +57,7 @@ class LoggerMessage implements \ArrayAccess, \JsonSerializable
      * Offset to unset
      * @link http://php.net/manual/en/arrayaccess.offsetunset.php
      * @param mixed $offset
+     * @return void
      */
     public function offsetUnset($offset)
     {

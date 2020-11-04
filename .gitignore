@@ -2,4 +2,6 @@
 /composer.lock
 /composer.phar
 /vendor
+/logs
 .vscode
+phpunit.xml
